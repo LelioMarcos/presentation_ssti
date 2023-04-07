@@ -11,6 +11,11 @@ def root(user=None):
 def hello_world(user=None):
     return render_template('index.html', user=user)
 
+# SSTI sem concatenação
+@app.route("/insecure/<user>")
+def hello_world_insecure(user=None):
+    return render_template('index.html', user=render_template_string(user))
+
 # Exemplo de código MUITO inseguro.
 @app.route("/produtos")
 def search():
