@@ -28,14 +28,14 @@ def messages():
     if session and session['username']:
         print(notes[session['username']])
 
-        template = ""
+        templates = []
         
         for message in notes[session['username']]:
-            template += message + ","
+            templates.append(render_template_string(message))
 
-        template = template[:-1]
+        templates.reverse()
 
-        return render_template('passwords.html', user=session['username'], messages=render_template_string(template))
+        return render_template('passwords.html', user=session['username'], messages=templates)
     
     return redirect('/login')
 
