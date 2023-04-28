@@ -21,6 +21,7 @@ main {
 }
 
 .message {
+    overflow-wrap: break-word;
     background-color: azure;
     border: 0px solid #424242;
     border-radius: 10px;
@@ -39,4 +40,22 @@ main {
     margin: 5px;
     padding: 5px;
     width: 400px;
+}
+
+button {
+    border: 1px solid #424242;
+    border-radius: 10px;
+    background-color: azure;
+    padding: 5px;
+}
+
+.login > label {
+    margin-left: 10px;
+    margin-top: 5px;
+    font-weight: 500;
+}
+
+.login > button {
+    margin: 5px;
+    margin-top: 10px;
 }
