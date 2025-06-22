@@ -1,15 +1,10 @@
-# syntax=docker/dockerfile:1
-
-FROM python:3.8-slim-buster
-
-RUN mkdir -p /app
+FROM python:3.13-alpine
 
 WORKDIR /app
 
+COPY ./requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
-RUN pip3 install -r requirements.txt
-
 EXPOSE 5000
-
-CMD ["python3", "-m" , "flask", "--app", "server", "--debug", "run", "--host=0.0.0.0"]
+CMD ["python", "-u", "server.py"]
